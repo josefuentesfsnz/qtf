@@ -1,0 +1,12 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Invitacion extends Model
+{
+    protected $table='invitacion';
+    protected $fillable = [];
+
+}
