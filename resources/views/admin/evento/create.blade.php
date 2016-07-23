@@ -7,10 +7,9 @@
             <div class="panel panel-default">
                 <div class="jumbotron text-center">
                     <h2 class="panel-heading">Creando Nuevo Evento</h2>
-                    {{Auth::user()->id}}
                 </div>
                 <div class="panel-body">
-                    {!! Form::open(['route' => 'user.evento.store', 'method' => 'POST']) !!}
+                    {!! Form::open(['route' => ['admin.evento.store', 'user_id' => Auth::User()->id], 'method' => 'POST']) !!}
                     <div class= "form-group">
                         {!! Form::label('titulo', 'Titulo') !!}
                         {!! Form::text('titulo', null,['class'=>'form-control', 'placeholder' => 'titulo del evento','required'])!!}
@@ -26,10 +25,10 @@
                     </div>
                     <div class= "form-group">
                         {!! Form::label('all_day', 'Todo el día') !!}
-                        {!! Form::checkbox('all_day', 0, ['all_day'=>'all_day'])!!}
+                        {!! Form::checkbox('all_day', null, ['all_day'=>'all_day'])!!}
                     
                         {!! Form::label('publico', 'Privado') !!}
-                        {!! Form::checkbox('privacidad', 0, ['privacidad'=>'privacidad'])!!}
+                        {!! Form::checkbox('privacidad', true, ['privacidad'=>'privacidad'])!!}
                     </div>
                     <div class= "form-group">
                         {!! Form::label('descripcion', 'Descripcion') !!}

@@ -7,11 +7,8 @@
             <div class="panel panel-default">
                     <div class="jumbotron text-center">
                         <h1 class="panel-heading">Inicio</h1>
-                        
-
                     </div>
                 <div class="panel-body">
-                    
                 </div>
 
             </div>

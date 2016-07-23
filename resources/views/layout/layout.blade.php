@@ -41,17 +41,48 @@
                         <li>
                             <a href="{{route('home')}}">Inicio</a>
                         </li>
-                        
                         <li>
-                            <a href="{{route('invitaciones')}}">Invitaciones</a>
+                            <div class="btn-group">
+                                <button class="btn">Usuario</button>
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                         <a href="{{route('admin.users.create')}}">crear</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admin.users.index')}}">listar</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admin.users.show',Auth::user()->id)}}">editar tu perfil</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
+
                         <li>
-                            <a href="{{route('user.evento.index')}}">Crear Evento</a>
+                            <div class="btn-group">
+                                <button class="btn">Evento</button>
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                   <li>
+                                         <a href="{{route('admin.evento.create')}}">crear</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admin.evento.index',Auth::user()->id)}}">listar</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </li>
-                        <li>
+
                         <li>
                             <a href="{{route('auth/logout')}}">Cerrar sesion</a>
                         </li>
+                        
                          
                     @endif
                 </ul>

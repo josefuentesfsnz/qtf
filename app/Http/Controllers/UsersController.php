@@ -1,34 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
-use App\Evento;
-use App\User;
-use App\Categoria;
-use App\Invitacion;
-use App\Contactos;
 
-
-use Validator;
 use Illuminate\Http\Request;
-use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-class EventoController extends Controller
+use App\User;
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
     public function index()
     {
-        $evento = \App\Evento::paginate(3);
-        return view('admin.evento.index')->with('evento', $evento);
-
+        $users = User::orderBy('id')->paginate(3);
+        return view('admin.users.index')->with('users', $users);
     }
 
     /**
@@ -38,7 +27,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return view('admin.evento.create');
+        return view('admin.users.create');
     }
 
     /**
@@ -49,9 +38,11 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-
-        $evento = new Evento($request->all());
-        return redirect()->route('admin.evento.index')->with('evento', $evento);
+        
+        $user = new User($request->all());
+        $user->password = bcrypt($request->password);
+        $user->save();
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -62,7 +53,8 @@ class EventoController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.users.show')->with('user', $user);
     }
 
     /**
@@ -73,7 +65,8 @@ class EventoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user =User::find($id);
+        return view('admin.users.edit')->with('user', $user);
     }
 
     /**
@@ -85,7 +78,12 @@ class EventoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user=User::find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->telefono=$request->telefono;
+        $user->save();
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -96,6 +94,9 @@ class EventoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        
+        $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }

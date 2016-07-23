@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', ['as' => 'home','uses' => 'HomeController@index']);
+Route::get('/',  'Auth\AuthController@getLogin');
 Route::get('home', ['as' => 'home','uses' => 'HomeController@index']);
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
@@ -24,6 +24,19 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
 Route::get('invitaciones',['middleware'=>'auth', 'as'=>'invitaciones','uses'=>'InvitacionController@index']);
 
-Route::group(['prefix'=>'user'],function(){
-    Route::resource('evento','EventoController');
+Route::group(['prefix' =>'admin'], function() {
+    Route::resource('users', 'UsersController');
+    Route::get('users/{id}/destroy', [
+        'uses'=>'UsersController@destroy',
+        'as'=>'admin.users.destroy'
+            ]);
 });
+
+Route::group(['prefix'=>'admin'], function(){
+    Route::resource('evento', 'EventoController');
+    Route::get('evento/{id}/destroy', [
+        'uses'=>'EventoController@destroy',
+        'as'=>'admin.evento.destroy'
+            ]);
+});
+

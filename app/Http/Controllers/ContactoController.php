@@ -1,34 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use DB;
-use App\Evento;
-use App\User;
-use App\Categoria;
-use App\Invitacion;
-use App\Contactos;
-
-
-use Validator;
+use Session;
 use Illuminate\Http\Request;
-use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
+use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class EventoController extends Controller
+class ContactoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
     public function index()
     {
-        $evento = \App\Evento::paginate(3);
-        return view('admin.evento.index')->with('evento', $evento);
-
+        $mis_contactos = Contactos::where('user_id',3);
+        return \View::make('admin.contacto.index',['mis_contactos'=> $mis_contactos]);
     }
 
     /**
@@ -38,7 +27,7 @@ class EventoController extends Controller
      */
     public function create()
     {
-        return view('admin.evento.create');
+        //
     }
 
     /**
@@ -49,9 +38,7 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-
-        $evento = new Evento($request->all());
-        return redirect()->route('admin.evento.index')->with('evento', $evento);
+        //
     }
 
     /**
