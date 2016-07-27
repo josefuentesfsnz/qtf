@@ -7,7 +7,7 @@ use App\User;
 use App\Categoria;
 use App\Invitacion;
 use App\Contactos;
-
+use Carbon\Carbon;
 
 use Validator;
 use Illuminate\Http\Request;
@@ -26,8 +26,8 @@ class EventoController extends Controller
     
     public function index()
     {
-        $evento = \App\Evento::paginate(3);
-        return view('admin.evento.index')->with('evento', $evento);
+        $eventos = Evento::orderBy('id')->paginate(3);
+        return view('admin.evento.index')->with('eventos', $eventos);
 
     }
 
@@ -49,8 +49,31 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
+    //      'id',               
+    //      'titulo',           
+    //      'all_day',          
+    //      'user_id',          
+    //      'privacidad',       
+    //      'lugar',            
+    //      'cantidad_max',     
+    //      'descripcion',      
+    //      'categoria_id'];  
 
+
+        
+
+        $request_final = $request;
+        $request['id'] = null;
+        $request['all_day'] = null;//todo el dia
+        $request['privacidad'] = null;//
+        $request['lugar'] = 'mi casa';
+        $request['cantidad_max'] = '10';
+        $request['descipcion'] = 'esta es una prueba de como se crea un evento';
+        $request['categoria_id'] = '2';
+        $request['inicio'] = Carbon::now()->toDateTimeString();
         $evento = new Evento($request->all());
+        $evento->save();
+
         return redirect()->route('admin.evento.index')->with('evento', $evento);
     }
 
