@@ -40,3 +40,11 @@ Route::group(['prefix'=>'admin'], function(){
             ]);
 });
 
+Route::group(['prefix'=>'admin'], function(){
+    Route::resource('categorias', 'CategoriasController');
+    Route::get('categorias/{id}/destroy', [
+        'uses'=>'CategoriasController@destroy',
+        'as'=>'admin.categorias.destroy'
+            ]);
+});
+

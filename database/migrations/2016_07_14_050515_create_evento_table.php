@@ -14,17 +14,18 @@ class CreateEventoTable extends Migration
     {
         Schema::create('evento', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo');
-            $table->boolean('all_day');
+            $table->longText('titulo');
+            $table->boolean('all_day')->default(0);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->boolean('privacidad');
-            $table->string('lugar');
-            $table->integer('cantidad_max')->unsigned();
-            $table->string('descipcion');
+            $table->boolean('privacidad')->default(0);
+            $table->longText('lugar');
+            $table->integer('cantidad_max')->unsigned()->default('1');
+            $table->string('descipcion',255);
             $table->integer('categoria_id')->unsigned();
-            $table->foreign('categoria_id')->references('id')->on('categoria');
-            $table->datetimestamp('fin');
+            $table->foreign('categoria_id')->references('id')->on('categoria')->default(null);
+            $table->dateTime('fin');
+            $table->dateTime('final');
 
 
             $table->timestamps();
