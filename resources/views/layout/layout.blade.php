@@ -37,10 +37,6 @@
                         <li><a href="{{route('auth/login')}}">Iniciar sesion</a></li>
                         <li><a href="{{route('auth/register')}}">Registrate</a></li>
                     @else
-                        
-                        <li>
-                            <a href="{{route('home')}}">Inicio</a>
-                        </li>
                         <li>
                             <div class="btn-group">
                                 <button class="btn">Usuario</button>
@@ -73,6 +69,24 @@
                                     </li>
                                     <li>
                                         <a href="{{route('admin.evento.index',Auth::user()->id)}}">listar</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="btn-group">
+                                <button class="btn">Categorias</button>
+                                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                   <li>
+                                         <a href="{{route('admin.categorias.create')}}">crear</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('admin.categorias.index')}}">listar</a>
                                     </li>
                                     
                                 </ul>

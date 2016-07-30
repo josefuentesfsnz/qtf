@@ -7,8 +7,6 @@
             <div class="panel panel-default">
                     <div class="jumbotron text-center">
                         <h1 class="panel-heading">creando</h1>
-                        
-
                     </div>
                 <div class="panel-body">
                     {!! Form::open(['route'=>'admin.users.store', 'method'=>'POST']) !!}

@@ -17,6 +17,14 @@
                             <th>Nombre</th>
                             <th>telefono</th>
                             <th>correo</th>
+                            <th >
+                                <a href="{{route('admin.users.create')}}" class="btn btn-info">
+                                    <span class="glyphicon glyphcon-remove-circle" aria-hidden="true">
+                                         Crear Nuevo
+                                    </span>
+                                </a>
+                            </th>
+
                         </thead>
                         <tbody>
                             @foreach($users as $user)
@@ -26,6 +34,7 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->telefono }}</td>
                                 <td>{{ $user->email }}</td>
+
                                 <td>
 
                                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary">

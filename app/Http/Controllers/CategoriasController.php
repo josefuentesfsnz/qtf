@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Categoria;
 class CategoriasController extends Controller
 {
     /**
@@ -16,7 +16,8 @@ class CategoriasController extends Controller
      */
     public function index()
     {
-        //
+        $categorias = Categoria::orderBy('id')->paginate(10);
+        return view('admin.categorias.index')->with('categorias', $categorias);
     }
 
     /**
@@ -26,7 +27,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categorias.create');
     }
 
     /**
@@ -37,7 +38,9 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categoria = new Categoria($request->all());
+        $categoria->save();
+        return redirect()->route('admin.categorias.index');
     }
 
     /**
@@ -59,7 +62,8 @@ class CategoriasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categoria = Categoria::find($id);
+        return view('admin.categorias.edit')->with('categoria', $categoria);
     }
 
     /**
@@ -71,7 +75,10 @@ class CategoriasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $categoria=Categoria::find($id);
+        $categoria->name=$request->name;
+        $categoria->save();
+        return redirect()->route('admin.categorias.index');
     }
 
     /**
@@ -82,6 +89,10 @@ class CategoriasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $categoria = Categoria::find($id);
+        
+        $categoria->delete();
+        return redirect()->route('admin.categorias.index');
     }
 }
