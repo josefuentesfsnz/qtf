@@ -15,6 +15,11 @@
                         {!! Form::text('titulo', null,['class'=>'form-control', 'placeholder' => 'titulo del evento','required'])!!}
                     </div>
 
+                    <div class= "form-group">
+                        {!! Form::label('descripcion', 'Descripción') !!}
+                        {!! Form::text('descripcion', null,['class'=>'form-control', 'placeholder' => 'descripcion'])!!}
+                    </div>
+
 
                     <div class= "form-group ">
                         {!! Form::submit('Crear Evento', ['class'=> 'btn btn-large btn-block btn-primary', 'type'=>'button']); !!}

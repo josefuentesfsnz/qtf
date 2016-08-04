@@ -21,7 +21,7 @@ class CreateEventoTable extends Migration
             $table->boolean('privacidad')->default(0);
             $table->longText('lugar');
             $table->integer('cantidad_max')->unsigned()->default('1');
-            $table->string('descipcion',255);
+            $table->string('descripcion',255);
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categoria')->default(null);
             $table->dateTime('fin');

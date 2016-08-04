@@ -15,8 +15,11 @@
                             <th>titulo</th>
                             <th>lugar</th>
                             <th>allday</th>
-                            <th></th>
-                            <th></th>
+                            <th>Descripción</th>
+                            <th>Privacidad</th>
+                            <th>Lugar</th>
+                            <th>Maximo de asistentes</th>
+                            <th>hora de inicio</th>
                         </thead>
                         <tbody>
                             @foreach($eventos as $evento)
@@ -25,18 +28,14 @@
                                 <td>{{ $evento->id }}</td>
                                 <td>{{ $evento->titulo }}</td>
                                 <td>{{ $evento->lugar }}</td>
-                                @if($evento->all_day = 1)
-                                    <td>true</td>
-                                @else
-                                    <td>false</td>
-                                @endif
-                                <td> {{ $evento->user_id }}</td>
+                                <td>{{ $evento->all_day}}</td>
+                                <td> {{ $evento->descripcion }}</td>
                                 <td> {{ $evento->privacidad }}</td>
                                 <td> {{ $evento->lugar }}</td>
                                 <td> {{ $evento->cantidad_max }}</td>
                                 <td> {{ $evento->inicio }}</td>
                                 <td>
-                                    <a href="{{ route('admin.evento.edit') }}" class="btn btn-primary">
+                                    <a href="{{ route('admin.evento.edit', $evento->id) }}" class="btn btn-primary">
                                         <span class="glyphicon glyphcon-remove-circle" aria-hidden="true">
                                             editar
                                         </span>
