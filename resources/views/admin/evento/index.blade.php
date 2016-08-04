@@ -11,7 +11,6 @@
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
-                            <th>id</th>
                             <th>titulo</th>
                             <th>lugar</th>
                             <th>allday</th>
@@ -25,7 +24,6 @@
                             @foreach($eventos as $evento)
 
                             <tr>
-                                <td>{{ $evento->id }}</td>
                                 <td>{{ $evento->titulo }}</td>
                                 <td>{{ $evento->lugar }}</td>
                                 <td>{{ $evento->all_day}}</td>

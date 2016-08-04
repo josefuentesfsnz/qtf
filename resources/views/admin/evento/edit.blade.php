@@ -13,8 +13,8 @@
                 <div class="panel-body">
                     {!! Form::open(['route'=>['admin.evento.update', $evento], 'method'=>'PUT']) !!}
                     <div class= "form-group">
-                        {!! Form::label('name', 'Nombre')!!}
-                        {!! Form::text('name', $evento->titulo, ['class'=>'form-control', 'placeholder'=>'nombre', 'required'])!!}
+                        {!! Form::label('titulo', 'Titulo')!!}
+                        {!! Form::text('titulo', $evento->titulo, ['class'=>'form-control', 'placeholder'=>'titulo', 'required'])!!}
                     </div>
                     <div class="form-group">
                          {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}

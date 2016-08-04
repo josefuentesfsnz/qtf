@@ -110,7 +110,11 @@ class EventoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $evento = Evento::find($id);
+        $evento->titulo=$request->titulo;
+        //dd($request->all());
+        $evento->save();
+        return redirect()->route('admin.evento.index');
     }
 
     /**
