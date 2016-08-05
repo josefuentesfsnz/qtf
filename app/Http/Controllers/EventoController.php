@@ -112,6 +112,8 @@ class EventoController extends Controller
     {
         $evento = Evento::find($id);
         $evento->titulo=$request->titulo;
+        $evento->lugar=$request->lugar;
+        $evento->descripcion=$request->descripcion;
         //dd($request->all());
         $evento->save();
         return redirect()->route('admin.evento.index');

@@ -16,6 +16,14 @@
                         {!! Form::label('titulo', 'Titulo')!!}
                         {!! Form::text('titulo', $evento->titulo, ['class'=>'form-control', 'placeholder'=>'titulo', 'required'])!!}
                     </div>
+                    <div class= "form-group">
+                        {!! Form::label('lugar', 'Lugar')!!}
+                        {!! Form::text('lugar', $evento->lugar, ['class'=>'form-control', 'placeholder'=>'lugar', 'required'])!!}
+                    </div>
+                    <div class= "form-group">
+                        {!! Form::label('descripcion', 'Descripción') !!}
+                        {!! Form::textarea('descripcion', $evento->descripcion,['class'=>'form-control', 'placeholder' => 'descripcion'])!!}
+                    </div>
                     <div class="form-group">
                          {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
                     </div>

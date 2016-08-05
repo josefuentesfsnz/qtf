@@ -24,7 +24,7 @@ class CreateEventoTable extends Migration
             $table->string('descripcion',255);
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categoria')->default(null);
-            $table->dateTime('fin');
+            $table->dateTime('inicio');
             $table->dateTime('final');
 
 
