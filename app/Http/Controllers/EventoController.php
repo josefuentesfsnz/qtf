@@ -51,18 +51,6 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-    //      'id',               
-    //      'titulo',           
-    //      'all_day',          
-    //      'user_id',          
-    //      'privacidad',       
-    //      'lugar',            
-    //      'cantidad_max',     
-    //      'descripcion',      
-    //      'categoria_id'];  
-
-
-
         if (isset($request['all_day']) && $request['all_day'] == 'true') {
             $request['all_day'] = 1;
         }
@@ -70,9 +58,6 @@ class EventoController extends Controller
             $request['privacidad'] = 1;
         }
 
-
-        //$request['privacidad'] = '1';
-        $request['lugar'] = "mi casa";
         $request['cantidad_max'] = '10';
         $request['categoria_id'] = '1';
         $request['inicio'] = Carbon::now()->toDateTimeString();
@@ -123,6 +108,11 @@ class EventoController extends Controller
             $evento->all_day = 1;
         }else{
             $evento->all_day = 0;
+        }
+        if (isset($request['privacidad']) && $request['privacidad'] == 'true') {
+            $evento->privacidad = 1;
+        }else{
+            $evento->privacidad = 0;
         }
         //dd($request->all());
         $evento->save();

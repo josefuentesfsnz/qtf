@@ -33,7 +33,7 @@
 
                     </div>
                     <div class= "form-group">
-                        {!! Form::label('privacidad', 'Privacidad') !!}
+                        {!! Form::label('privacidad', 'Privado') !!}
 
                         @if($evento->privacidad == 1 )
 

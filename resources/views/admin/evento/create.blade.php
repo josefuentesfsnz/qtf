@@ -15,11 +15,19 @@
                         {!! Form::text('titulo', null,['class'=>'form-control', 'placeholder' => 'titulo del evento','required'])!!}
                     </div>
 
+                    <div class= "form-group">
+                        {!! Form::label('lugar', 'Dirección') !!}
+                        {!! Form::text('lugar', null,['class'=>'form-control', 'placeholder' => 'Dirección','required'])!!}
+                    </div>
+
                     
 
                     <div class= "form-group">
                         {!! Form::label('todo el dia', 'Todo el día') !!}
                         {!! Form::checkbox('all_day', 'true', true) !!}
+
+                        {!! Form::label('privacidad', 'Privado') !!}
+                        {!! Form::checkbox('privacidad', 'true', true) !!}
                     </div>
                     <div class= "form-group">
                         {!! Form::label('descripcion', 'Descripción') !!}

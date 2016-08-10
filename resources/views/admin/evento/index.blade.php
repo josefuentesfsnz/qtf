@@ -12,19 +12,29 @@
                     <table class="table table-striped">
                         <thead>
                             <th>titulo</th>
-                            <th>allday</th>
+                            <th>Horarios</th>
                             <th>Descripción</th>
                             <th>Privacidad</th>
                             <th>Lugar</th>
                             <th>Maximo de asistentes</th>
-                            <th>hora de inicio</th>
                         </thead>
                         <tbody>
                             @foreach($eventos as $evento)
 
                             <tr>
                                 <td>{{ $evento->titulo }}</td>
-                                <td>{{ $evento->all_day}}</td>
+
+
+                                
+                                @if($evento->all_day == 1)
+                                 <td>Todo el día</td>
+
+                                @else
+                                <td>Inicio: {{ $evento->inicio }}</td>
+                                @endif
+
+
+
                                 <td> {{ $evento->descripcion }}</td>
                                 @if($evento->privacidad == 1)
                                 <td> Privado</td>
@@ -33,6 +43,9 @@
                                 @endif
                                 <td> {{ $evento->lugar }}</td>
                                 <td> {{ $evento->cantidad_max }}</td>
+
+                                
+
                                 <td> {{ $evento->inicio }}</td>
                                 <td>
                                     <a href="{{ route('admin.evento.edit', $evento->id) }}" class="btn btn-primary">
