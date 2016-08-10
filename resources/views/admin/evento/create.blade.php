@@ -15,9 +15,15 @@
                         {!! Form::text('titulo', null,['class'=>'form-control', 'placeholder' => 'titulo del evento','required'])!!}
                     </div>
 
+                    
+
+                    <div class= "form-group">
+                        {!! Form::label('todo el dia', 'Todo el día') !!}
+                        {!! Form::checkbox('all_day', 'true', true) !!}
+                    </div>
                     <div class= "form-group">
                         {!! Form::label('descripcion', 'Descripción') !!}
-                        {!! Form::text('descripcion', null,['class'=>'form-control', 'placeholder' => 'descripcion'])!!}
+                        {!! Form::textarea('descripcion', null,['class'=>'form-control', 'placeholder' => 'descripcion'])!!}
                     </div>
 
 

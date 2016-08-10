@@ -21,9 +21,37 @@
                         {!! Form::text('lugar', $evento->lugar, ['class'=>'form-control', 'placeholder'=>'lugar', 'required'])!!}
                     </div>
                     <div class= "form-group">
+                        {!! Form::label('todo el dia', 'Todo el día') !!}
+
+                        @if($evento->all_day == 1 )
+
+                        {!! Form::checkbox('all_day', 'true', true) !!}
+
+                        @else
+                            {!! Form::checkbox('all_day', 'true', false) !!}
+                        @endif
+
+                    </div>
+                    <div class= "form-group">
+                        {!! Form::label('privacidad', 'Privacidad') !!}
+
+                        @if($evento->privacidad == 1 )
+
+                        {!! Form::checkbox('privacidad', 'true', true) !!}
+
+                        @else
+                            {!! Form::checkbox('privacidad', 'true', false) !!}
+                        @endif
+
+                    </div>
+                    <div class= "form-group">
                         {!! Form::label('descripcion', 'Descripción') !!}
                         {!! Form::textarea('descripcion', $evento->descripcion,['class'=>'form-control', 'placeholder' => 'descripcion'])!!}
                     </div>
+
+                    
+
+
                     <div class="form-group">
                          {!! Form::submit('Guardar', ['class'=>'btn btn-primary']) !!}
                     </div>

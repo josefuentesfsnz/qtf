@@ -26,7 +26,7 @@ class EventoController extends Controller
     
     public function index()
     {
-        $eventos = Evento::orderBy('id')->paginate(5);
+        $eventos = Evento::orderBy('id')->paginate(10);
         return view('admin.evento.index')->with('eventos', $eventos);
 
     }
@@ -62,18 +62,23 @@ class EventoController extends Controller
     //      'categoria_id'];  
 
 
-        
 
-        $request['all_day'] = '1';//todo el dia
-        $request['privacidad'] = '1';//
+        if (isset($request['all_day']) && $request['all_day'] == 'true') {
+            $request['all_day'] = 1;
+        }
+        if (isset($request['privacidad']) && $request['privacidad'] == 'true') {
+            $request['privacidad'] = 1;
+        }
+
+
+        //$request['privacidad'] = '1';
         $request['lugar'] = "mi casa";
         $request['cantidad_max'] = '10';
         $request['categoria_id'] = '1';
         $request['inicio'] = Carbon::now()->toDateTimeString();
-        $evento = new Evento($request->all());
-
-        dd($request->all());
-        //$evento->save();
+        
+        //dd($request->all());
+        Evento::create($request->all());
 
         return redirect()->route('admin.evento.index');
     }
@@ -111,9 +116,14 @@ class EventoController extends Controller
     public function update(Request $request, $id)
     {
         $evento = Evento::find($id);
-        $evento->titulo=$request->titulo;
-        $evento->lugar=$request->lugar;
+        $evento->titulo     =$request->titulo;
+        $evento->lugar      =$request->lugar;
         $evento->descripcion=$request->descripcion;
+        if (isset($request['all_day']) && $request['all_day'] == 'true') {
+            $evento->all_day = 1;
+        }else{
+            $evento->all_day = 0;
+        }
         //dd($request->all());
         $evento->save();
         return redirect()->route('admin.evento.index');

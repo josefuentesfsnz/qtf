@@ -12,7 +12,6 @@
                     <table class="table table-striped">
                         <thead>
                             <th>titulo</th>
-                            <th>lugar</th>
                             <th>allday</th>
                             <th>Descripción</th>
                             <th>Privacidad</th>
@@ -25,10 +24,13 @@
 
                             <tr>
                                 <td>{{ $evento->titulo }}</td>
-                                <td>{{ $evento->lugar }}</td>
                                 <td>{{ $evento->all_day}}</td>
                                 <td> {{ $evento->descripcion }}</td>
-                                <td> {{ $evento->privacidad }}</td>
+                                @if($evento->privacidad == 1)
+                                <td> Privado</td>
+                                @else
+                                <td> Público</td>
+                                @endif
                                 <td> {{ $evento->lugar }}</td>
                                 <td> {{ $evento->cantidad_max }}</td>
                                 <td> {{ $evento->inicio }}</td>
@@ -38,6 +40,8 @@
                                             editar
                                         </span>
                                     </a>
+                                </td>
+                                <td>
                                     <a href="{{ route('admin.evento.destroy', $evento->id) }}" class="btn btn-danger">
                                         <span class="glyphicon glyphcon-remove-circle" aria-hidden="true">
                                             eliminar

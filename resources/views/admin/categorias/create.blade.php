@@ -16,8 +16,6 @@
                         {!! Form::label('name', 'Nombre')!!}
                         {!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'nombre', 'required'])!!}
                     </div>
-
-
                     <div class="form-group">
                          {!! Form::submit('Registrar', ['class'=>'btn btn-primary']) !!}
                     </div>
