@@ -21,6 +21,10 @@
                         {!! Form::text('lugar', $evento->lugar, ['class'=>'form-control', 'placeholder'=>'lugar', 'required'])!!}
                     </div>
                     <div class= "form-group">
+                        {!! Form::label('cantidad_max', 'Capacidad') !!}
+                        {!! Form::text('cantidad_max', $evento->cantidad_max,['class'=>'form-control', 'placeholder' => 'cantidad_max','required'])!!}
+                    </div>
+                    <div class= "form-group">
                         {!! Form::label('todo el dia', 'Todo el día') !!}
 
                         @if($evento->all_day == 1 )

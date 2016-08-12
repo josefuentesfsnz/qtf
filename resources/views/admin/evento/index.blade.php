@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
+    @foreach($eventos as $evento)
     <div class="row">
+        
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                    <div class="jumbotron text-center">
-                        <h1 class="panel-heading">Eventos</h1>
-                    </div>
+                <h1 class="panel-heading">{{ $evento->titulo }}</h1>
                 <div class="panel-body">
                     <table class="table table-striped">
                         <thead>
@@ -19,7 +19,9 @@
                             <th>Maximo de asistentes</th>
                         </thead>
                         <tbody>
-                            @foreach($eventos as $evento)
+
+
+                            
 
                             <tr>
                                 <td>{{ $evento->titulo }}</td>
@@ -63,14 +65,20 @@
                                 </td>
                             </td>
                             </tr>
-                            @endforeach
+                            
                         </tbody>
                     </table>
-                    {!! $eventos->render() !!}
+                   
                 </div>
 
+
             </div>
+        
         </div>
+    </div>
+    
+        @endforeach
+ {!! $eventos->render() !!}
     </div>
 </div>
 @endsection

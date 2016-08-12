@@ -26,7 +26,7 @@ class EventoController extends Controller
     
     public function index()
     {
-        $eventos = Evento::orderBy('id')->paginate(10);
+        $eventos = Evento::orderBy('id')->paginate(2);
         return view('admin.evento.index')->with('eventos', $eventos);
 
     }
@@ -51,6 +51,13 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
+        $v = Validator::make($request->all(), [ 
+            'cantidad_max' => 'required|integer' ]);
+        if ($v->fails())
+        {
+            return redirect()->back()->withErrors($v->errors());
+        }
+
         if (isset($request['all_day']) && $request['all_day'] == 'true') {
             $request['all_day'] = 1;
         }
@@ -58,13 +65,12 @@ class EventoController extends Controller
             $request['privacidad'] = 1;
         }
 
-        $request['cantidad_max'] = '10';
+        // $request['cantidad_max'] = '10';
         $request['categoria_id'] = '1';
         $request['inicio'] = Carbon::now()->toDateTimeString();
         
-        //dd($request->all());
+        // dd($request->all());
         Evento::create($request->all());
-
         return redirect()->route('admin.evento.index');
     }
 
@@ -114,6 +120,7 @@ class EventoController extends Controller
         }else{
             $evento->privacidad = 0;
         }
+        $evento->cantidad_max=$request->cantidad_max;
         //dd($request->all());
         $evento->save();
         return redirect()->route('admin.evento.index');

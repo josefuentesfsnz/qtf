@@ -20,7 +20,10 @@
                         {!! Form::text('lugar', null,['class'=>'form-control', 'placeholder' => 'Dirección','required'])!!}
                     </div>
 
-                    
+                    <div class= "form-group">
+                        {!! Form::label('cantidad_max', 'Capacidad') !!}
+                        {!! Form::text('cantidad_max', 0,['class'=>'form-control', 'placeholder' => 'cantidad_max','required'])!!}
+                    </div>
 
                     <div class= "form-group">
                         {!! Form::label('todo el dia', 'Todo el día') !!}
