@@ -39,16 +39,16 @@
                     @else
                         <li>
                             <div class="btn-group">
-                                <button class="btn">Usuario</button>
+                                <button class="btn">
+                                    <a href="{{route('admin.users.index')}}">Usuarios</a>
+                                
+                                </button>
                                 <button class="btn dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li>
                                          <a href="{{route('admin.users.create')}}">crear</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('admin.users.index')}}">listar</a>
                                     </li>
                                     <li>
                                         <a href="{{route('admin.users.show',Auth::user()->id)}}">editar tu perfil</a>
@@ -59,34 +59,35 @@
 
                         <li>
                             <div class="btn-group">
-                                <button class="btn">Evento</button>
+                                <button class="btn">
+                                    <a href="{{route('admin.evento.index',Auth::user()->id)}}">
+                                        Eventos
+                                    </a>
+                                </button>
                                 <button class="btn dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
                                    <li>
                                          <a href="{{route('admin.evento.create')}}">crear</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('admin.evento.index',Auth::user()->id)}}">listar</a>
-                                    </li>
-                                    
+                                    </li>                                    
                                 </ul>
                             </div>
                         </li>
 
                         <li>
                             <div class="btn-group">
-                                <button class="btn">Categorias</button>
+                                <button class="btn" >
+                                    <a href="{{route('admin.categorias.index')}}">
+                                        Categorias
+                                    </a>
+                                </button>
                                 <button class="btn dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
                                    <li>
                                          <a href="{{route('admin.categorias.create')}}">crear</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{route('admin.categorias.index')}}">listar</a>
                                     </li>
                                     
                                 </ul>
