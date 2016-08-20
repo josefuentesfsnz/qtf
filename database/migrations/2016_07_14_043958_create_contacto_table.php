@@ -19,7 +19,7 @@ class CreateContactoTable extends Migration
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('contacto_id')->references('id')->on('users');
-
+            $table->softDeletes();
             $table->timestamps();
 
         });

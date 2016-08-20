@@ -66,6 +66,7 @@ class EventoController extends Controller
         }
 
         // $request['cantidad_max'] = '10';
+
         $request['categoria_id'] = '1';
         $request['inicio'] = Carbon::now()->toDateTimeString();
         
@@ -93,8 +94,12 @@ class EventoController extends Controller
      */
     public function edit($id)
     {
+
+        $categoria = Categoria::all();
         $evento = Evento::find($id);
-        return view('admin.evento.edit')->with('evento',$evento);
+        //dd(['evento'=>$evento,'categorias'=>$categoria]);
+        return view('admin.evento.edit')->with(['evento'=>$evento,'categorias'=>$categoria]);
+
     }
 
     /**
@@ -121,9 +126,9 @@ class EventoController extends Controller
             $evento->privacidad = 0;
         }
         $evento->cantidad_max=$request->cantidad_max;
-        //dd($request->all());
-        $evento->save();
-        return redirect()->route('admin.evento.index');
+        dd($request->all());
+        // $evento->save();
+        // return redirect()->route('admin.evento.index');
     }
 
     /**

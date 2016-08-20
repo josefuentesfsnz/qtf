@@ -25,26 +25,22 @@ Route::post('auth/register', ['as' => 'auth/register', 'uses' => 'Auth\AuthContr
 Route::get('invitaciones',['middleware'=>'auth', 'as'=>'invitaciones','uses'=>'InvitacionController@index']);
 
 Route::group(['prefix' =>'admin'], function() {
+    
     Route::resource('users', 'UsersController');
     Route::get('users/{id}/destroy', [
         'uses'=>'UsersController@destroy',
         'as'=>'admin.users.destroy'
             ]);
-});
 
-Route::group(['prefix'=>'admin'], function(){
     Route::resource('evento', 'EventoController');
     Route::get('evento/{id}/destroy', [
         'uses'=>'EventoController@destroy',
         'as'=>'admin.evento.destroy'
             ]);
-});
-
-Route::group(['prefix'=>'admin'], function(){
     Route::resource('categorias', 'CategoriasController');
     Route::get('categorias/{id}/destroy', [
         'uses'=>'CategoriasController@destroy',
         'as'=>'admin.categorias.destroy'
             ]);
-});
 
+});

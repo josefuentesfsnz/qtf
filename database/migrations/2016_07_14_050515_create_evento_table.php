@@ -26,6 +26,7 @@ class CreateEventoTable extends Migration
             $table->foreign('categoria_id')->references('id')->on('categoria')->default(null);
             $table->dateTime('inicio');
             $table->dateTime('final');
+            $table->softDeletes();
 
 
             $table->timestamps();

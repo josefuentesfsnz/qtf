@@ -17,6 +17,7 @@ class CreateInscritoTable extends Migration
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->on('evento')->onDelete('cascade');
+            $table->softDeletes();
             
             $table->integer('evento_id')->unsigned();
             $table->foreign('evento_id')->references('id')->on('evento')->onDelete('cascade');

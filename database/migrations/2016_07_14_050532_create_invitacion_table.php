@@ -20,7 +20,7 @@ class CreateInvitacionTable extends Migration
             $table->foreign('evento_id')->references('id')->on('evento')->onDelete('cascade');
 
             $table->enum('estado',['aceptado', 'rechazado', 'espera', 'talvez'])->default('espera');
-
+            $table->softDeletes();
             
             $table->timestamps();
         });
