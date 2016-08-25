@@ -26,6 +26,7 @@
                             <th>Privacidad</th>
                             <th>Lugar</th>
                             <th>Maximo de asistentes</th>
+                            <th>Categoria</th>
                         </thead>
                         <tbody>
                             <tr>
@@ -46,6 +47,7 @@
                                 @endif
                                 <td> {{ $evento->lugar }}</td>
                                 <td> {{ $evento->cantidad_max }}</td>
+                                <td> {{ $evento->categoria_id }}</td>
                             </tr>
                         </tbody>
 

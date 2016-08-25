@@ -26,6 +26,7 @@ class EventoController extends Controller
     
     public function index()
     {
+
         $eventos = Evento::orderBy('id')->paginate(2);
         return view('admin.evento.index')->with('eventos', $eventos);
 
@@ -38,9 +39,11 @@ class EventoController extends Controller
      */
     public function create()
     {
+        $categoria = Categoria::orderBy('name','ASC')->lists('name','id');
 
 
-        return view('admin.evento.create');
+        return view('admin.evento.create')->with('categorias',$categoria);
+
     }
 
     /**
@@ -51,6 +54,7 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
+
         $v = Validator::make($request->all(), [ 
             'cantidad_max' => 'required|integer' ]);
         if ($v->fails())
@@ -67,7 +71,7 @@ class EventoController extends Controller
 
         // $request['cantidad_max'] = '10';
 
-        $request['categoria_id'] = '1';
+        // $request['categoria_id'] = '1';
         $request['inicio'] = Carbon::now()->toDateTimeString();
         
         // dd($request->all());
@@ -95,9 +99,9 @@ class EventoController extends Controller
     public function edit($id)
     {
 
-        $categoria = Categoria::all();
+        $categoria = Categoria::orderBy('id','ASC')->lists('name','id');
         $evento = Evento::find($id);
-        //dd(['evento'=>$evento,'categorias'=>$categoria]);
+        // dd(['evento'=>$evento,'categorias'=>$categoria]);
         return view('admin.evento.edit')->with(['evento'=>$evento,'categorias'=>$categoria]);
 
     }
@@ -126,9 +130,10 @@ class EventoController extends Controller
             $evento->privacidad = 0;
         }
         $evento->cantidad_max=$request->cantidad_max;
-        dd($request->all());
-        // $evento->save();
-        // return redirect()->route('admin.evento.index');
+        $evento->categoria_id = $request->categoria_id;
+        // dd($request->all());
+        $evento->save();
+        return redirect()->route('admin.evento.index');
     }
 
     /**

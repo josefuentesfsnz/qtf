@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Categoria;
 class CategoriasController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *

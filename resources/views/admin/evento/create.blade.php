@@ -14,6 +14,10 @@
                         {!! Form::label('titulo', 'Titulo') !!}
                         {!! Form::text('titulo', null,['class'=>'form-control', 'placeholder' => 'titulo del evento','required'])!!}
                     </div>
+                    <div>
+                        {!! Form::label('categoria', 'Categoría')!!}
+                        {!!Form::select('categoria_id',$categorias, null,['class'=>'form-control','placeholder'=>'Selecciona una categoria','required']) !!}
+                    </div>
 
                     <div class= "form-group">
                         {!! Form::label('lugar', 'Dirección') !!}

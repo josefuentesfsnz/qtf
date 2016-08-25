@@ -12,11 +12,7 @@
             <div class="panel panel-default">
                     <div class="jumbotron text-center">
                         <h2 class="panel-heading">Editar a Evento</h2>
-                        @foreach($categorias as $categoria)
-                            <p>{!! $categoria->id !!}</p>
-                            <p>{!! $categoria->name !!}</p>
-                        @endforeach
-
+                        
 
                     </div>
                 <div class="panel-body">
@@ -29,6 +25,12 @@
                         {!! Form::label('lugar', 'Lugar')!!}
                         {!! Form::text('lugar', $evento->lugar, ['class'=>'form-control', 'placeholder'=>'lugar', 'required'])!!}
                     </div>
+                    <div>
+                        {!! Form::label('categoria', 'Categoría')!!}
+                        {!!Form::select('categoria_id',$categorias, null,['class'=>'form-control','placeholder'=>'Selecciona una categoria','required']) !!}
+                    </div>
+                    
+
                     <div class= "form-group">
                         {!! Form::label('cantidad_max', 'Capacidad') !!}
                         {!! Form::text('cantidad_max', $evento->cantidad_max,['class'=>'form-control', 'placeholder' => 'cantidad_max','required'])!!}
