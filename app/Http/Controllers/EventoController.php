@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use DB;
 use App\Evento;
@@ -27,7 +26,7 @@ class EventoController extends Controller
     public function index()
     {
 
-        $eventos = Evento::orderBy('id')->paginate(2);
+        $eventos = Evento::orderBy('id')->paginate(5);
         return view('admin.evento.index')->with('eventos', $eventos);
 
     }
@@ -72,9 +71,9 @@ class EventoController extends Controller
         // $request['cantidad_max'] = '10';
 
         // $request['categoria_id'] = '1';
-        $request['inicio'] = Carbon::now()->toDateTimeString();
+        //$request['inicio'] = Carbon::now()->toDateTimeString();
         
-        // dd($request->all());
+        //dd($request->all());
         Evento::create($request->all());
         return redirect()->route('admin.evento.index');
     }
@@ -101,7 +100,8 @@ class EventoController extends Controller
 
         $categoria = Categoria::orderBy('id','ASC')->lists('name','id');
         $evento = Evento::find($id);
-        // dd(['evento'=>$evento,'categorias'=>$categoria]);
+        
+        //dd($evento->inicio);
         return view('admin.evento.edit')->with(['evento'=>$evento,'categorias'=>$categoria]);
 
     }
@@ -131,7 +131,11 @@ class EventoController extends Controller
         }
         $evento->cantidad_max=$request->cantidad_max;
         $evento->categoria_id = $request->categoria_id;
-        // dd($request->all());
+
+        
+        $evento->inicio = Carbon::createFromFormat('d/m/Y', $request->inicios);
+        //dd($evento->inicio);
+        
         $evento->save();
         return redirect()->route('admin.evento.index');
     }

@@ -21,13 +21,38 @@
                         {!! Form::label('titulo', 'Titulo')!!}
                         {!! Form::text('titulo', $evento->titulo, ['class'=>'form-control', 'placeholder'=>'titulo', 'required'])!!}
                     </div>
+
+
+
+                    
+                    
+                        <div class="form-group">
+                        {!! Form::label('fecha', 'Fecha de inicio')!!}
+                            <div class="input-group">
+                                {!! Form::input('text', 'inicios', $evento->inicio, ['class' => 'form-control datepicker']) !!}
+                                <div class="input-group-addon">
+
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+
+
+          
+
+
+    
+
+
                     <div class= "form-group">
                         {!! Form::label('lugar', 'Lugar')!!}
                         {!! Form::text('lugar', $evento->lugar, ['class'=>'form-control', 'placeholder'=>'lugar', 'required'])!!}
                     </div>
                     <div>
                         {!! Form::label('categoria', 'Categoría')!!}
-                        {!!Form::select('categoria_id',$categorias, null,['class'=>'form-control','placeholder'=>'Selecciona una categoria','required']) !!}
+                        {!!Form::select('categoria_id',$categorias, $evento->categoria_id,['class'=>'form-control','placeholder'=>'Selecciona una categoria','required']) !!}
                     </div>
                     
 
@@ -63,6 +88,7 @@
                         {!! Form::label('descripcion', 'Descripción') !!}
                         {!! Form::textarea('descripcion', $evento->descripcion,['class'=>'form-control', 'placeholder' => 'descripcion'])!!}
                     </div>
+
 
                     
 

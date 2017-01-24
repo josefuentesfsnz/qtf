@@ -5,9 +5,9 @@
 | Application Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
+| Aquí es donde puede registrar todas las rutas para una aplicación.
+| Es una brisa. Simplemente diga a Laravel los URI que debe responder a
+| Y darle el controlador para llamar cuando se solicita ese URI.
 |
 */
 
@@ -43,4 +43,14 @@ Route::group(['prefix' =>'admin'], function() {
         'as'=>'admin.categorias.destroy'
             ]);
 
+
 });
+
+Route::get('/test/datepicker', function () {
+    return view('datepicker');
+});
+Route::post('/test/save', ['as' => 'save-date',
+                           'uses' => 'DateController@showDate', 
+                            function () {
+                                return '';
+                            }]);

@@ -34,7 +34,11 @@
                                  <td>Todo el día</td>
 
                                 @else
-                                <td>Inicio: {{ $evento->inicio }}</td>
+                                <td>
+                                Inicio: {{ $evento->inicio->day .'-'.$evento->inicio->month .'-'. $evento->inicio->year }}
+                                <br>
+                                 Final: {{ $evento->final->day .'-'.$evento->final->month .'-'. $evento->final->year }}
+                                 </td>
                                 @endif
 
 

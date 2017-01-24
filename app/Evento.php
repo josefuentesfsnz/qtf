@@ -14,6 +14,10 @@ class Evento extends Model
     'lugar', 
     'cantidad_max', 
     'descripcion', 
-    'categoria_id'];
+    'categoria_id',
+    'inicio',
+    'final'];
+    protected $dates = ['inicio',
+    'final'];
 
 }
