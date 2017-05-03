@@ -10,8 +10,8 @@
 | Y darle el controlador para llamar cuando se solicita ese URI.
 |
 */
-
-
+//configuracion de la vista inicial
+//eliminado provisoriamente 
 Route::get('/',  'Auth\AuthController@getLogin');
 Route::get('home', ['as' => 'home','uses' => 'HomeController@index']);
 // Authentication routes...
@@ -23,6 +23,9 @@ Route::get('auth/logout', ['as' => 'auth/logout', 'uses' => 'Auth\AuthController
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
 Route::get('invitaciones',['middleware'=>'auth', 'as'=>'invitaciones','uses'=>'InvitacionController@index']);
+
+Route::get('usuario/index', 'UsuarioController@index');
+
 
 Route::group(['prefix' =>'admin'], function() {
     

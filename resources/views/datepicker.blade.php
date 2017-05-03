@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-default btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
 
                 </div>

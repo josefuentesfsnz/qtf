@@ -19,32 +19,19 @@
                     {!! Form::open(['route'=>['admin.evento.update', $evento], 'method'=>'PUT']) !!}
                     <div class= "form-group">
                         {!! Form::label('titulo', 'Titulo')!!}
-                        {!! Form::text('titulo', $evento->titulo, ['class'=>'form-control', 'placeholder'=>'titulo', 'required'])!!}
+                        {!! Form::text('titulo', $evento->titulo, ['class'=>'form-control', 'placeholder'=>'titulo', 'required']) !!}
                     </div>
-
-
-
-                    
-                    
-                        <div class="form-group">
+                    <div class="form-group">
                         {!! Form::label('fecha', 'Fecha de inicio')!!}
-                            <div class="input-group">
-                                {!! Form::input('text', 'inicios', $evento->inicio, ['class' => 'form-control datepicker']) !!}
-                                <div class="input-group-addon">
+                        <div class="input-group">
+                            {!! Form::input('text', 'inicios', $evento->inicio, ['class' => 'form-control datepicker']) !!}
+                            <div class="input-group-addon">
 
-                                    <span class="glyphicon glyphicon-th"></span>
-                                </div>
+                                <span class="glyphicon glyphicon-th"></span>
                             </div>
                         </div>
+                    </div>
                     
-
-
-
-          
-
-
-    
-
 
                     <div class= "form-group">
                         {!! Form::label('lugar', 'Lugar')!!}

@@ -26,7 +26,7 @@ class EventoController extends Controller
     public function index()
     {
 
-        $eventos = Evento::orderBy('id')->paginate(5);
+        $eventos = Evento::orderBy('id')->paginate(2);
         return view('admin.evento.index')->with('eventos', $eventos);
 
     }
