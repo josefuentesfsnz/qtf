@@ -59,7 +59,7 @@
                    <td>
                         <a href="{{ route('admin.evento.edit', $evento->id) }}" class="btn btn-primary">
                             <span class="glyphicon glyphcon-remove-circle" aria-hidden="true">
-                                editar
+                                Editar
                             </span>
                         </a>
                     </td>
