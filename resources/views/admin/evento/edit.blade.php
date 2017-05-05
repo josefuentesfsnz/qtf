@@ -11,7 +11,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                     <div class="jumbotron text-center">
-                        <h2 class="panel-heading">Editar a Evento</h2>
+                        <h2 class="panel-heading">Editar un Evento</h2>
                         
 
                     </div>

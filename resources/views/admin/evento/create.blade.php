@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="jumbotron text-center">
-                    <h2 class="panel-heading">Creando Nuevo Evento</h2>
+                    <h2 class="panel-heading">Agregar Evento</h2>
                 </div>
                 <div class="panel-body">
                     {!! Form::open(['route' => ['admin.evento.store', 'user_id' => Auth::User()->id], 'method' => 'POST']) !!}

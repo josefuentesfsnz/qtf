@@ -66,7 +66,7 @@
                     <td>
                         <a href="{{ route('admin.evento.destroy', $evento->id) }}" class="btn btn-danger">
                             <span class="glyphicon glyphcon-remove-circle" aria-hidden="true">
-                                eliminar
+                                Eliminar
                             </span>
                         </a>
                     </td>
